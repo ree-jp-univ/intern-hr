@@ -1,0 +1,9 @@
+{
+    "name": "fuel-php-dev",
+    // ターゲットのdocker-compose.ymlファイル
+    "dockerComposeFile":"../docker/docker-compose.yml",
+    // 開発環境のコンテナ
+    "service": "app",
+    // コンテナ作成時に開くフォルダ
+    "workspaceFolder": "/var/www/html/my_fuel_project"
+}
