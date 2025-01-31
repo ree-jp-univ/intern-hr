@@ -17,11 +17,14 @@ services:
     build:
       context: ../
       dockerfile: docker/db/Dockerfile
+    container_name: fuelphp-db
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: fuelphp
     ports:
       - "3306:3306"
+    volumes:
+      - ./db/conf.d:/etc/mysql/conf.d
     networks:
       - fuelphp-network
 
