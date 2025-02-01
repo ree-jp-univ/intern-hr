@@ -1,6 +1,5 @@
 <style>
     header {
-        color: #373530;
         text-align: center;
         padding: 1px;
     }

@@ -1,5 +1,8 @@
 <?php
 
+use Fuel\Core\Controller;
+use Fuel\Core\View;
+
 class Controller_Login extends Controller
 {
     public function action_index()
@@ -8,8 +11,8 @@ class Controller_Login extends Controller
         // $data['title'] =
         $view = array();
         $view['header'] = View::forge('header');
+        $view['content'] = View::forge('login/index');
         $view['footer'] = View::forge('footer');
-        $view['content'] = View::forge('content');
 
         return View::forge('layout', $view);
     }

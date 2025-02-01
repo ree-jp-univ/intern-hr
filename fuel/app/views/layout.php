@@ -3,6 +3,7 @@
     <style>
         body {
             background-color: #fdfbf8;
+            color: #373530
         }
     </style>
 </head>
