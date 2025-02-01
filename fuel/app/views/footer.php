@@ -3,8 +3,12 @@
         text-align: center;
         padding: 1px;
     }
+
+    footer a {
+        color: #000;
+        text-decoration: none;
+    }
 </style>
 <footer>
-    THIS IS FOOTER</br>
-    フッターが降ったー
+    <a href="https://github.com/ree-jp-univ/intern-hr">フッターが降ったー</a>
 </footer>
