@@ -28,7 +28,7 @@
     .login-container button {
         width: 100%;
         padding: 10px;
-        background-color: #007BFF;
+        background-color: #447ACB;
         color: white;
         border: none;
         border-radius: 4px;
@@ -37,14 +37,14 @@
     }
 
     .login-container button:hover {
-        background-color: #0056b3;
+        background-color: #2A4C80;
     }
 
     .login-container a {
         /* display: block; */
         padding-top: 32px;
         margin-bottom: 8px;
-        color: #007BFF;
+        color: #447ACB;
         text-decoration: none;
     }
 
@@ -56,18 +56,14 @@
 <div class="login-body">
     <div class="login-container">
         <h1>アカウント登録</h1>
-        <?php echo \Fuel\Core\Form::open(['action' => 'register/register', 'method' => 'post']); ?>
+        <?php echo \Fuel\Core\Form::open(['action' => 'register', 'method' => 'post']); ?>
         <div class="form-group">
             <label for="username">ユーザー名</label>
-            <?php echo \Fuel\Core\Form::input('username', null, ['id' => 'username', 'class' => 'form-controll']); ?>
-        </div>
-        <div class="form-group">
-            <label for="email">メールアドレス</label>
-            <?php echo \Fuel\Core\Form::input('email', null, ['id' => 'email', 'class' => 'form-controll']); ?>
+            <?php echo \Fuel\Core\Form::input('username', null, ['type' => 'text']); ?>
         </div>
         <div class="form-group">
             <label for="password">パスワード</label>
-            <?php echo \Fuel\Core\Form::password('password', null, ['id' => 'password', 'class' => 'form-controll']); ?>
+            <?php echo \Fuel\Core\Form::password('password', null, ['type' => 'password']); ?>
         </div>
         <div>
             <p><?php echo \Fuel\Core\Session::get_flash('message') ?></p>
