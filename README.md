@@ -1,9 +1,9 @@
-# インターン課題環境構築手順
+## データベース
 
-## Dockerの基本知識
-Dockerの基本的な概念については、以下のリンクを参考にしてください：
-- [Docker入門（1）](https://qiita.com/Sicut_study/items/4f301d000ecee98e78c9)
-- [Docker入門（2）](https://qiita.com/takusan64/items/4d622ce1858c426719c7)
+1. **SimpleAuthのデータベース生成**
+```
+php oil refine migrate --packages=auth
+```
 
 ## セットアップ手順
 
