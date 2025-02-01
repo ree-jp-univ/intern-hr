@@ -10,8 +10,6 @@ class Controller_Login extends Controller
 {
     public function action_index()
     {
-        $data = array();
-        // $data['title'] =
         $view = array();
         $view['header'] = View::forge('header');
         $view['content'] = View::forge('login/index');
