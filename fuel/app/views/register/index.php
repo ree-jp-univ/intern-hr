@@ -25,23 +25,7 @@
         box-sizing: border-box;
     }
 
-    .login-container button {
-        width: 100%;
-        padding: 10px;
-        background-color: #447ACB;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 16px;
-    }
-
-    .login-container button:hover {
-        background-color: #2A4C80;
-    }
-
     .login-container a {
-        /* display: block; */
         padding-top: 32px;
         margin-bottom: 8px;
         color: #447ACB;
@@ -50,6 +34,10 @@
 
     .login-container a:hover {
         text-decoration: underline;
+    }
+
+    .login-container .message {
+        color: #BE524B;
     }
 </style>
 
@@ -66,9 +54,9 @@
             <?php echo \Fuel\Core\Form::password('password', null, ['type' => 'password']); ?>
         </div>
         <div>
-            <p><?php echo \Fuel\Core\Session::get_flash('message') ?></p>
+            <p class="message"><?php echo \Fuel\Core\Session::get_flash('message') ?></p>
         </div>
-        <?php echo \Fuel\Core\Form::button('登録', null, ['class' => 'btn btn-primary']); ?>
+        <?php echo \Fuel\Core\Form::button('登録', null, ['class' => 'btn-primary']); ?>
         <?php echo \Fuel\Core\Form::close(); ?>
         <a href="/login">ログインはこちらから</a>
     </div>
