@@ -23,6 +23,12 @@ RUN apt-get update && \
     docker-php-ext-configure gd --with-freetype-dir --with-jpeg-dir && \
     docker-php-ext-install mbstring pdo_mysql mysqli zip gd gmp bcmath
 
+# Node.jsをインストール
+RUN apt-get update && \
+    apt-get install -y curl && \
+    curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
+    apt-get install -y nodejs
+
 # 日本語ロケールの生成
 RUN locale-gen ja_JP.UTF-8 && \
     echo "LANG=ja_JP.UTF-8" > /etc/default/locale && \

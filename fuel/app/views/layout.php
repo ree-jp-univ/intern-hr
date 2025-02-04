@@ -26,7 +26,9 @@
 <body>
     <?php echo $header; ?>
     <?php echo $content; ?>
-    <?php echo $footer; ?>
+    <?php if (!is_null($footer)){
+        echo $footer;
+    } ?>
 </body>
 
 </html>

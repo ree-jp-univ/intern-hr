@@ -1,11 +1,16 @@
 <style>
+    .editor-container {
+        margin: 0 auto;
+        max-width: 600px;
+    }
+
     /* ヘッダー部分 */
     .content-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 0 30px;
-        margin-top: 20px;
+        margin: 20 0px;
     }
 
     .content-title {
@@ -19,6 +24,9 @@
     }
 </style>
 
+
 <div>
-    <div id="editor">a</div>
+    <div id="editor">エディターを読み込み中...</div>
+    <script src="http://localhost:9000/assets/js/react/editor.js"></script>
+    <!-- <script src="/assets/js/react/editor.js"></script> -->
 </div>

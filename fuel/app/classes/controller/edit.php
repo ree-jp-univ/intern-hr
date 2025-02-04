@@ -32,7 +32,7 @@ class Controller_Edit extends Controller
         $view = array();
         $view['header'] = View::forge('header');
         $view['content'] = View::forge('edit/editor', $data);
-        $view['footer'] = View::forge('footer');
+        $view['footer'] = View::forge('edit/dummy');
 
         return View::forge('layout', $view);
     }
