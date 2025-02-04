@@ -25,6 +25,10 @@
         box-sizing: border-box;
     }
 
+    .login-container button {
+        width: 100%;
+    }
+
     .login-container a {
         padding-top: 32px;
         margin-bottom: 8px;

@@ -8,7 +8,6 @@
         }
 
         .btn-primary {
-            width: 100%;
             padding: 10px;
             background-color: #447ACB;
             color: white;
