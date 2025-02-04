@@ -10,4 +10,5 @@ return array(
 		$view['footer'] = \Fuel\Core\View::forge('footer');
 		echo \Fuel\Core\View::forge('layout', $view);
 	},
+	'edit/(:memo_id)' => 'edit/index/$1',
 );

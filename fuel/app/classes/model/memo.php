@@ -24,4 +24,12 @@ class Model_Memo extends \Fuel\Core\Model
             ->order_by(self::$_updated_at, 'desc');
         return $query->execute()->as_array();
     }
+
+    public static function get_memo($memo_id)
+    {
+        $query = DB::select(self::$_memo_id, self::$_user_id, self::$_title, self::$_content_json, self::$_content_html, self::$_is_published, self::$_created_at, self::$_updated_at)
+            ->from(self::$_table_name)
+            ->where(self::$_memo_id, $memo_id);
+        return $query->execute()->as_array();
+    }
 }
