@@ -28,4 +28,11 @@ class Controller_Home extends Controller
             return Response::redirect('login');
         }
     }
+
+    public function get_memos()
+    {
+        list(, $user_id) = Auth::get_user_id();
+        $memos = Model_Memo::get_user_memo_list($user_id);
+        return Response::forge(json_encode($memos));
+    }
 }
