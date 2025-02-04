@@ -1,8 +1,13 @@
 ## データベース
 
-1. **SimpleAuthのデータベース生成**
+1. **SimpleAuthのテーブル生成**
 ```
 php oil refine migrate --packages=auth
+```
+
+2. **アプリデータ保存用のテーブルを作成**
+```
+setup.sql
 ```
 
 ## セットアップ手順
