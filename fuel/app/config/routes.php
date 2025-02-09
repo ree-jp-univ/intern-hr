@@ -11,4 +11,5 @@ return array(
 		echo \Fuel\Core\View::forge('layout', $view);
 	},
 	'edit/(:memo_id)' => 'edit/index/$1',
+	'view/(:memo_id)' => 'view/index/$1',
 );
