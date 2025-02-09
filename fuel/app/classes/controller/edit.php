@@ -26,9 +26,10 @@ class Controller_Edit extends Controller
             return Response::redirect('/');
         }
         $data = array();
-        $data['title'] = $memo[0]['title'];
-        $data['json'] = $memo[0]['content_json'] ?? '{}';
-        $data['is_published'] = $memo[0]['is_published'];
+        // nullの場合は初期値を設定
+        $memo[0]['content_json'] = $memo[0]['content_json'] ?? '{}';
+        $memo[0]['content_html'] = $memo[0]['content_html'] ?? '';
+        $data['memo'] = $memo[0];
         $view = array();
         $view['header'] = View::forge('header');
         $view['content'] = View::forge('edit/editor', $data);

@@ -80,6 +80,19 @@
     .icon-btn:hover {
         color: #555;
     }
+
+    .message {
+        padding: 15px 20px;
+        background-color: #e9f8fd;
+        /* 優しい青系の背景 */
+        border-left: 5px solid #007BFF;
+        /* 左側にアクセントをつける */
+        border-radius: 4px;
+        color: #333;
+        font-size: 16px;
+        margin: 15px 30px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
 </style>
 
 <!-- Font Awesome CDN を読み込み -->
@@ -89,7 +102,11 @@
 
 <div>
     <h1 class="welcome"><?php echo $username; ?>さん､ようこそ</h1>
-
+    <div>
+        <?php if ($message = \Fuel\Core\Session::get_flash('message')): ?>
+            <p class="message"><?php echo $message; ?></p>
+        <?php endif; ?>
+    </div>
     <!-- ヘッダー：左側に「メモ一覧」、右側に新規作成ボタン -->
     <div class="content-header">
         <span class="content-title">メモ一覧</span>

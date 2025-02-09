@@ -9,21 +9,28 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0 30px;
-        margin: 20 0px;
+        padding: 0 10px;
+        margin: 0 auto;
+        max-width: 800px;
     }
 
     .content-title {
+        flex: 5;
         font-size: 20px;
         font-weight: bold;
     }
 
     .header-btns {
+        flex: 3;
         display: flex;
         gap: 10px;
     }
 </style>
 
+<script>
+    // FuelPHPから渡されたデータを埋め込む
+    window.__INITIAL_DATA__ = <?= json_encode($memo); ?>;
+</script>
 
 <div>
     <div id="editor">エディターを読み込み中...</div>
