@@ -32,4 +32,43 @@ class Model_Memo extends \Fuel\Core\Model
             ->where(self::$_memo_id, $memo_id);
         return $query->execute()->as_array();
     }
+
+    public static function update_memo($memo_id, $title = null, $memo_json = null, $memo_html = null, $is_published = null)
+    {
+        // nullでないものだけ更新する
+        if (!is_null($title)) {
+            $array[self::$_title] = $title;
+        }
+        if (!is_null($memo_json)) {
+            $array[self::$_content_json] = $memo_json;
+        }
+        if (!is_null($memo_html)) {
+            $array[self::$_content_html] = $memo_html;
+        }
+        if (!is_null($is_published)) {
+            $array[self::$_is_published] = $is_published;
+        }
+        $query = DB::update(self::$_table_name)
+            ->set($array)
+            ->where(self::$_memo_id, $memo_id);
+        return $query->execute();
+    }
+
+    public static function create_memo($user_id, $memo_id, $title)
+    {
+        $query = DB::insert(self::$_table_name)
+            ->set(array(
+                self::$_user_id => $user_id,
+                self::$_memo_id => $memo_id,
+                self::$_title => $title,
+            ));
+        return $query->execute();
+    }
+
+    public static function delete_memo($memo_id)
+    {
+        $query = DB::delete(self::$_table_name)
+            ->where(self::$_memo_id, $memo_id);
+        return $query->execute();
+    }
 }
