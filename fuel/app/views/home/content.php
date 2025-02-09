@@ -189,6 +189,10 @@
                 <p>最終更新: <span data-bind="text: updated_at"></span></p>
             </div>
             <div class="memo-actions">
+                <button class="icon-btn view-btn" data-bind="click: function(data, event) { 
+                    event.stopPropagation(); window.open('/view/' + memo_id, '_blank'); }">
+                    <i class="fa fa-eye"></i>
+                </button>
                 <button class="icon-btn edit-btn" data-bind="click: $parent.editMemo">
                     <i class="fa fa-edit"></i>
                 </button>
