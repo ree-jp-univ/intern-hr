@@ -1,10 +1,18 @@
-<html>
+<html lang="ja">
 
 <head>
     <style>
         body {
             background-color: #fdfbf8;
             color: #373530
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
         }
 
         .btn-primary {
@@ -46,6 +54,7 @@
             justify-content: center;
             align-items: center;
             z-index: 10;
+            margin: 0 auto;
         }
 
         .spinner {
@@ -55,6 +64,10 @@
             width: 36px;
             height: 36px;
             animation: spin 1s linear infinite;
+        }
+
+        .w-full {
+            width: 100%;
         }
 
         @keyframes spin {

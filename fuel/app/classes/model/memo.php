@@ -61,6 +61,7 @@ class Model_Memo extends \Fuel\Core\Model
                 self::$_user_id => $user_id,
                 self::$_memo_id => $memo_id,
                 self::$_title => $title,
+                self::$_is_published => 0,
             ));
         return $query->execute();
     }

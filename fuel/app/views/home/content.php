@@ -93,6 +93,39 @@
         margin: 15px 30px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
+
+    /* モーダル全体のオーバーレイ */
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: none;
+        /* 非表示状態 */
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    /* モーダルのコンテンツ */
+    .modal-content {
+        background: #fdfbf8;
+        padding: 20px;
+        border-radius: 8px;
+        max-width: 500px;
+        width: 80%;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    /* クローズボタン */
+    .modal-close {
+        float: right;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: bold;
+    }
 </style>
 
 <!-- Font Awesome CDN を読み込み -->
@@ -100,7 +133,23 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.min.js"></script>
 
+<!-- 背景クリック時にモーダルを閉じようとしたけど中身のフォームが反応しなくなる -->
+<!-- <div class="modal-overlay" data-bind="style: { display: showNewMemoModal() ? 'flex' : 'none' }, click: function(data, event) { if(event.target === event.currentTarget) showNewMemoModal(false); }"> -->
+<div class="modal-overlay" data-bind="style: { display: showNewMemoModal() ? 'flex' : 'none' }">
+    <div class="modal-content">
+        <span class="modal-close" data-bind="click: function() { showNewMemoModal(false); }">&times;</span>
+        <h2>新規メモ作成</h2>
+        <form data-bind="submit: createMemo">
+            <input class="w-full" type="text" name="memo_title" placeholder="メモのタイトルを入力" data-bind="value: newMemoTitle" required />
+            <button class="btn-accent w-full" type="submit">作成する</button>
+        </form>
+    </div>
+</div>
+
 <div>
+    <div class="spinner-overlay" data-bind="visible: isLoading">
+        <div class="spinner" data-bind="visible: isLoading"></div>
+    </div>
     <h1 class="welcome"><?php echo $username; ?>さん､ようこそ</h1>
     <div>
         <?php if ($message = \Fuel\Core\Session::get_flash('message')): ?>
@@ -110,7 +159,7 @@
     <!-- ヘッダー：左側に「メモ一覧」、右側に新規作成ボタン -->
     <div class="content-header">
         <span class="content-title">メモ一覧</span>
-        <button class="btn-primary header-btn">新規メモ作成</button>
+        <button class="btn-primary header-btn" data-bind="click: openNewMemoModal">新規メモ作成</button>
     </div>
 
     <!-- メモ一覧 -->

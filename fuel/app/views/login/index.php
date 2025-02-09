@@ -15,16 +15,7 @@
         margin-bottom: 24px;
         font-size: 24px;
     }
-
-    .login-container input {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 16px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-    }
-
+    
     .login-container button {
         width: 100%;
     }
@@ -51,16 +42,16 @@
         <?php echo \Fuel\Core\Form::open(['action' => 'login', 'method' => 'post']); ?>
         <div class="form-group">
             <label for="username">ユーザー名</label>
-            <?php echo \Fuel\Core\Form::input('username', null, ['type' => 'text']); ?>
+            <?php echo \Fuel\Core\Form::input('username', null, ['class' => 'w-full', 'type' => 'text']); ?>
         </div>
         <div class="form-group">
             <label for="passowrd">パスワード</label>
-            <?php echo \Fuel\Core\Form::input('password', null, ['type' => 'password']); ?>
+            <?php echo \Fuel\Core\Form::input('password', null, ['class' => 'w-full', 'type' => 'password']); ?>
         </div>
         <div>
             <p class="message"><?php echo \Fuel\Core\Session::get_flash('message') ?></p>
         </div>
-        <?php echo \Fuel\Core\Form::button('ログイン', null, ['class' => 'btn-primary']); ?>
+        <?php echo \Fuel\Core\Form::button('ログイン', null, ['class' => 'btn-primary w-full']); ?>
         <?php echo \Fuel\Core\Form::close(); ?>
         <a href="/register">アカウント登録はこちらから</a>
     </div>
