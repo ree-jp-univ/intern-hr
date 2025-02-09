@@ -27,7 +27,7 @@ class Controller_Edit extends Controller
         }
         $data = array();
         // nullの場合は初期値を設定
-        $memo[0]['content_json'] = $memo[0]['content_json'] ?? '{}';
+        $memo[0]['content_json'] = $memo[0]['content_json'] ?? '';
         $memo[0]['content_html'] = $memo[0]['content_html'] ?? '';
         $data['memo'] = $memo[0];
         $view = array();

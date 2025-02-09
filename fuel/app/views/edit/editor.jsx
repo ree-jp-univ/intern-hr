@@ -23,8 +23,10 @@ export default function App() {
         type: "paragraph",
         content: "",
     }];
-    const decoded = decodeHtmlEntities(memo['content_json']);
-    initialContent = JSON.parse(decoded);
+    if (memo['content_json'] !== '') {
+        const decoded = decodeHtmlEntities(memo['content_json']);
+        initialContent = JSON.parse(decoded);
+    }
 
     const editor = useCreateBlockNote({
         initialContent: initialContent,
