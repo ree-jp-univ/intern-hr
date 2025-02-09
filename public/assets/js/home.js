@@ -82,8 +82,9 @@ function AppViewModel() {
                 self.fetchMemos();
                 self.showEditMemoModal(false);
                 self.isLoading(false);
+            } else {
+                throw new Error("メモ更新に失敗しました");
             }
-            throw new Error("メモ更新に失敗しました");
         }).catch(function (error) {
             console.error('メモ更新エラー:', error);
             alert(error.message);
