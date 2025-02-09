@@ -133,15 +133,34 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.min.js"></script>
 
+<!-- 作成用モーダル -->
 <!-- 背景クリック時にモーダルを閉じようとしたけど中身のフォームが反応しなくなる -->
 <!-- <div class="modal-overlay" data-bind="style: { display: showNewMemoModal() ? 'flex' : 'none' }, click: function(data, event) { if(event.target === event.currentTarget) showNewMemoModal(false); }"> -->
 <div class="modal-overlay" data-bind="style: { display: showNewMemoModal() ? 'flex' : 'none' }">
     <div class="modal-content">
         <span class="modal-close" data-bind="click: function() { showNewMemoModal(false); }">&times;</span>
         <h2>新規メモ作成</h2>
+        <div class="spinner-overlay" data-bind="visible: isLoading">
+            <div class="spinner" data-bind="visible: isLoading"></div>
+        </div>
         <form data-bind="submit: createMemo">
             <input class="w-full" type="text" name="memo_title" placeholder="メモのタイトルを入力" data-bind="value: newMemoTitle" required />
             <button class="btn-accent w-full" type="submit">作成する</button>
+        </form>
+    </div>
+</div>
+
+<!-- 編集用モーダル -->
+<div class="modal-overlay" data-bind="style: { display: showEditMemoModal() ? 'flex' : 'none' }">
+    <div class="modal-content">
+        <span class="modal-close" data-bind="click: function() { showEditMemoModal(false); }">&times;</span>
+        <h2>メモ編集</h2>
+        <div class="spinner-overlay" data-bind="visible: isLoading">
+            <div class="spinner" data-bind="visible: isLoading"></div>
+        </div>
+        <form data-bind="submit: updateMemo">
+            <input class="w-full" type="text" name="memo_title" placeholder="メモのタイトルを入力" data-bind="value: editMemoTitle" required />
+            <button class="btn-accent w-full" type="submit">更新する</button>
         </form>
     </div>
 </div>

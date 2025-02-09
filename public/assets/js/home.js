@@ -27,7 +27,6 @@ function AppViewModel() {
 
     // フォーム送信時に API を呼び、新規メモ作成する関数
     self.createMemo = function () {
-        self.showNewMemoModal(false);
         self.isLoading(true);
 
         const params = new URLSearchParams();
@@ -45,9 +44,48 @@ function AppViewModel() {
             } else {
                 throw new Error("新規メモ作成に失敗しました");
             }
+            self.showNewMemoModal(false);
             self.isLoading(false);
         }).catch(function (error) {
             console.error('メモ作成エラー:', error);
+            alert(error.message);
+            self.showNewMemoModal(false);
+            self.isLoading(false);
+        });
+    };
+
+    self.showEditMemoModal = ko.observable(false);
+    self.selectedMemo = ko.observable(null);
+    self.editMemoTitle = ko.observable("");
+
+    // 編集ボタンをクリックしたときの処理
+    self.editMemo = function (memo) {
+        // 編集フォームに既存のタイトルをセット
+        self.selectedMemo(memo);
+        self.editMemoTitle(memo.title);
+        self.showEditMemoModal(true);
+    };
+
+    self.updateMemo = function () {
+        self.isLoading(true);
+        const params = new URLSearchParams();
+        params.append('memo_id', self.selectedMemo().memo_id);
+        params.append('title', self.editMemoTitle());
+        fetch('/api/memo/update', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: params.toString(),
+        }).then(function (response) {
+            if (response.ok) {
+                self.fetchMemos();
+                self.showEditMemoModal(false);
+                self.isLoading(false);
+            }
+            throw new Error("メモ更新に失敗しました");
+        }).catch(function (error) {
+            console.error('メモ更新エラー:', error);
             alert(error.message);
             self.isLoading(false);
         });
