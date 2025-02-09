@@ -34,6 +34,10 @@
 
 <div>
     <div id="editor">エディターを読み込み中...</div>
-    <script src="http://localhost:9000/assets/js/react/editor.js"></script>
-    <!-- <script src="/assets/js/react/editor.js"></script> -->
 </div>
+
+<?php if (\Fuel\Core\Fuel::$env === \Fuel\Core\Fuel::DEVELOPMENT): ?>
+    <script src="http://localhost:9000/assets/js/react/editor.js"></script>
+<?php else: ?>
+    <script src="/assets/js/react/editor.js"></script>
+<?php endif; ?>

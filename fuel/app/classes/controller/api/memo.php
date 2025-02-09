@@ -147,6 +147,8 @@ class Controller_Api_Memo extends Controller
 
     public function before()
     {
+        // ローディングアニメーション見るために1秒待ってあげる
+        sleep(1);
         parent::before();
         if (!Auth::check()) {
             Session::set_flash('message', 'ログインしてください');
