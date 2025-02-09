@@ -93,6 +93,7 @@ function AppViewModel() {
 
     self.deleteMemo = function (memo) {
         if (confirm("本当に削除してよろしいですか？")) {
+            self.isLoading(true);
             const params = new URLSearchParams();
             params.append('memo_id', memo.memo_id);
             fetch('/api/memo/delete', {
@@ -104,12 +105,14 @@ function AppViewModel() {
             }).then(function (response) {
                 if (response.ok) {
                     self.fetchMemos();
+                    self.isLoading(false);
                 } else {
                     throw new Error("削除に失敗しました");
                 }
             }).catch(function (error) {
                 console.error('削除エラー:', error);
                 alert(error.message);
+                self.isLoading(false);
             });
         }
     };
