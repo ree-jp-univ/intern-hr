@@ -53,6 +53,30 @@ function AppViewModel() {
         });
     };
 
+    self.deleteMemo = function (memo) {
+        if (confirm("本当に削除してよろしいですか？")) {
+            const params = new URLSearchParams();
+            params.append('memo_id', memo.memo_id);
+            fetch('/api/memo/delete', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: params.toString(),
+            }).then(function (response) {
+                if (response.ok) {
+                    self.fetchMemos();
+                } else {
+                    throw new Error("削除に失敗しました");
+                }
+            }).catch(function (error) {
+                console.error('削除エラー:', error);
+                alert(error.message);
+            });
+        }
+    };
+
+
     this.fetchMemos();
 }
 
