@@ -27,6 +27,7 @@ class Controller_Register extends Controller
 
         try {
             if (Auth::create_user($_POST['username'], $_POST['password'], $_POST['username'] . '@example.com')) {
+                Auth::login($_POST['username'], $_POST['password']);
                 Session::set_flash('message', 'アカウントを作成しました');
                 Response::redirect('/');
             } else {
