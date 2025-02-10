@@ -18,6 +18,7 @@ export default function App() {
     const memo = window.__INITIAL_DATA__ || {};
 
     const [isLoading, setIsLoading] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     let isPreview = false;
     if (memo['view']) {
@@ -49,6 +50,16 @@ export default function App() {
 
     return (
         <div>
+            {isModalOpen && (
+                <div class="modal-overlay">
+                    <div class="modal-content">
+                        <span class="modal-close" onClick={() => setIsModalOpen(false)}>&times;</span>
+                        <h2>メモの公開</h2>
+                        <p>以下のリンクから誰でもメモを観覧できます｡</p>
+                        <a target='_blank' href={`/view/${memo['memo_id']}`}>{window.location.hostname}{`/view/${memo['memo_id']}`}</a>
+                    </div>
+                </div>
+            )}
             <div>
                 <div className="content-header">
                     <span className="content-title">{memo['title']}</span>
@@ -72,6 +83,9 @@ export default function App() {
                                     setIsLoading(false);
                                     if (response.ok) {
                                         memo['is_published'] = parseInt(memo['is_published']) ? 0 : 1;
+                                        if (parseInt(memo['is_published'])) {
+                                            setIsModalOpen(true);
+                                        }
                                     }
                                 }}>
                                 {parseInt(memo['is_published']) ? '公開中' : '公開する'}
