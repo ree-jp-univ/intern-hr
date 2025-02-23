@@ -1,36 +1,4 @@
-<style>
-    .login-body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .login-container {
-        max-width: 400px;
-        padding: 10px;
-    }
-
-    .login-container h1 {
-        text-align: center;
-        margin-bottom: 24px;
-        font-size: 24px;
-    }
-
-    .login-container a {
-        padding-top: 32px;
-        margin-bottom: 8px;
-        color: #447ACB;
-        text-decoration: none;
-    }
-
-    .login-container a:hover {
-        text-decoration: underline;
-    }
-
-    .login-container .message {
-        color: #BE524B;
-    }
-</style>
+<?php echo \Fuel\Core\Asset::css('login.css'); ?>
 
 <div class="login-body">
     <div class="login-container">

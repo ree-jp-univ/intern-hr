@@ -1,31 +1,4 @@
-<style>
-    .editor-container {
-        margin: 0 auto;
-        max-width: 600px;
-    }
-
-    /* ヘッダー部分 */
-    .content-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 10px;
-        margin: 0 auto;
-        max-width: 800px;
-    }
-
-    .content-title {
-        flex: 5;
-        font-size: 20px;
-        font-weight: bold;
-    }
-
-    .header-btns {
-        flex: 3;
-        display: flex;
-        gap: 10px;
-    }
-</style>
+<?php echo \Fuel\Core\Asset::css('editor.css'); ?>
 
 <script>
     // FuelPHPから渡されたデータを埋め込む
