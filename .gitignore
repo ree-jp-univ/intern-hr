@@ -1,2 +1,4 @@
 fuel/app/logs
 .DS_Store
+node_modules
+.env
