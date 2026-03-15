@@ -10,5 +10,5 @@
     }
 </style>
 <footer>
-    <a href="https://github.com/ree-jp-univ/intern-hr">フッターが降ったー</a>
+    <a href="https://about.reesuke.com">フッターが降ったー</a>
 </footer>
